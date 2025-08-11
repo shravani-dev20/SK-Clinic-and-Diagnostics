@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Calendar, PhoneCall, ChevronRight } from 'lucide-react';
-import p from '../assets/image1.png'; // ✅ make sure 'image.png' is in 'src/assets'
+import { useEffect, useState } from 'react';
+import { FaInstagram, FaFacebookF, FaTwitter } from 'react-icons/fa';
+import p from '../assets/image1.png';
+import heartVideo from '../assets/heart.mp4';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -18,11 +19,23 @@ const Hero = () => {
     >
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-20 md:opacity-30"
+        className="absolute inset-0 bg-cover bg-center opacity-130 md:opacity-120"
         style={{
           transform: `translateY(${scrollY * 0.4}px)`,
           backgroundImage: `url(${p})`,
         }}
+      />
+
+      {/* Background Video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover opacity-90 md:opacity-80 pointer-events-none"
+        src={heartVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster={p}
+        aria-hidden="true"
       />
 
       {/* Overlay */}
@@ -39,41 +52,53 @@ const Hero = () => {
           Our expertise at <br className="hidden md:block" /> your service
         </h1>
 
-        {/* Cards Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 max-w-6xl animate-fade-in-up">
-          {/* Service Providers */}
-          {/* <div className="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center space-x-3 text-lg font-semibold text-white">
-              <PhoneCall className="text-cyan-300" size={22} />
-              <span>Our Service Providers</span>
-            </div>
-            <ChevronRight className="mt-6 text-cyan-200" />
-          </div> */}
-
-          {/* Appointment */}
-          {/* <div className="bg-white/10 border border-white/20 backdrop-blur-md rounded-2xl p-6 hover:scale-[1.02] hover:shadow-xl transition-all duration-300">
-            <div className="flex items-center space-x-3 text-lg font-semibold text-white">
-              <Calendar className="text-cyan-300" size={22} />
-              <span>Book an Appointment</span>
-            </div>
-            <ChevronRight className="mt-6 text-cyan-200" />
-          </div> */}
-
-          {/* Emergency */}
-          {/* <div className="bg-gradient-to-br from-green-500 to-teal-400 text-white rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all">
-            <div className="text-lg font-bold mb-1">Have an Emergency?</div>
-            <div className="text-sm uppercase tracking-wide">EMERGENCY LINE</div>
-            <div className="text-3xl font-extrabold tracking-wide mt-2">1-800-900</div>
-          </div>
-        */}
+        {/* Social Media Links right below heading */}
+        <div className="flex justify-start space-x-8 mb-12">
+          <a
+            href="https://instagram.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-pink-500 transition-colors duration-300 text-3xl"
+            aria-label="Instagram"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            href="https://facebook.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-blue-600 transition-colors duration-300 text-3xl"
+            aria-label="Facebook"
+          >
+            <FaFacebookF />
+          </a>
+          <a
+            href="https://twitter.com/yourprofile"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white hover:text-sky-400 transition-colors duration-300 text-3xl"
+            aria-label="Twitter"
+          >
+            <FaTwitter />
+          </a>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mt-16 animate-slide-up">
-          <button className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 hover:from-cyan-300 hover:to-blue-400">
+        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 mt-0 animate-slide-up">
+          <button
+            onClick={() =>
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+            }
+            className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 hover:from-cyan-300 hover:to-blue-400"
+          >
             Book Appointment Now
           </button>
-          <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transform hover:scale-105 transition-all duration-300 border border-white/30">
+          <button
+            onClick={() =>
+              document.getElementById('team')?.scrollIntoView({ behavior: 'smooth' })
+            }
+            className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transform hover:scale-105 transition-all duration-300 border"
+          >
             Meet Our Doctors
           </button>
         </div>

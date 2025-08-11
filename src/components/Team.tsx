@@ -1,4 +1,3 @@
-import React from 'react';
 import { Star, Award, GraduationCap, Clock } from 'lucide-react';
 import d from '../assets/doc.png';
 const Team = () => {
@@ -116,7 +115,7 @@ const Team = () => {
 
                 {/* Action Buttons */}
                 <div className="flex space-x-3">
-                  <button className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-400 text-white py-2 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+                  <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-400 text-white py-2 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-300">
                     Book Appointment
                   </button>
                   <button className="bg-gray-100 text-gray-700 p-2 rounded-full hover:bg-gray-200 transition-colors duration-300">

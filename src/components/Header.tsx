@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Phone, MapPin, Clock, Menu, X } from 'lucide-react';
 
 const Header = () => {
@@ -76,7 +76,7 @@ const Header = () => {
                 {item}
               </button>
             ))}
-            <button className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300">
+            <button onClick={() => scrollToSection('contact')} className="bg-gradient-to-r from-blue-500 to-cyan-400 text-white px-6 py-2 rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-300">
               Book Appointment
             </button>
           </div>
@@ -104,7 +104,7 @@ const Header = () => {
                 {item}
               </button>
             ))}
-            <button className="w-full mt-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300">
+            <button onClick={() => scrollToSection('contact')} className="w-full mt-4 bg-gradient-to-r from-blue-500 to-cyan-400 text-white py-3 rounded-full hover:shadow-lg transition-all duration-300">
               Book Appointment
             </button>
           </div>
