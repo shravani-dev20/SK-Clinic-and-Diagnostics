@@ -1,0 +1,9 @@
+[build]
+  command = "npm install && npm run build"
+  publish = "build" # If your final static site is in a different folder, change it
+
+[build.environment]
+  NODE_VERSION = "20.15.0"
+
+[build.lifecycle]
+  onBuild = "apt-get update && apt-get install -y unixodbc-dev g++ make python3"
